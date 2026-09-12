@@ -70,7 +70,7 @@ g++ -std=c++17 -Iinclude source/*.cpp -o restaurant
 
 **Windows:**
 ```powershell
-.\restaurant.exe
+./restaurant.exe
 ```
 
 **Linux / macOS:**
