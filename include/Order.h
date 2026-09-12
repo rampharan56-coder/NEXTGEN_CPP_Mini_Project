@@ -2,7 +2,7 @@
 #define ORDER_H
 
 #include <string>
-
+using namespace std;
 // ============================================================
 // Order Class
 // Demonstrates OOP and dynamic memory
@@ -11,8 +11,8 @@ class Order
 {
 private:
     int orderID;
-    std::string customerName;
-    std::string foodName;
+    string customerName;
+    string foodName;
     double price;
 
 public:
@@ -24,8 +24,8 @@ public:
 
     // Getters
     int getOrderID();
-    std::string getCustomerName();
-    std::string getFoodName();
+    string getCustomerName();
+    string getFoodName();
     double getPrice();
 
     // Display one order
