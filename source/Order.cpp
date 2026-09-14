@@ -12,12 +12,7 @@ Order::Order(int id, string customer, string food, double p)
     price = p;
 }
 
-// Destructor
-Order::~Order()
-{
-    // Nothing to free here because Order does not
-    // directly allocate memory.
-}
+
 
 // Getters
 int Order::getOrderID()

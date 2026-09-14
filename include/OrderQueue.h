@@ -58,5 +58,5 @@ public:
     void sortOrders();
 };
 
-#endif // ORDER_QUEUE_H
+#endif  //ORDER_QUEUE_H
 

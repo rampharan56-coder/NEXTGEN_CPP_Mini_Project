@@ -9,18 +9,17 @@ using namespace std;
 // ============================================================
 class Order
 {
-private:
+    private:
     int orderID;
     string customerName;
     string foodName;
     double price;
 
-public:
+    public:
     // Constructor
     Order(int id, std::string customer, std::string food, double price);
 
-    // Destructor
-    ~Order();
+    
 
     // Getters
     int getOrderID();

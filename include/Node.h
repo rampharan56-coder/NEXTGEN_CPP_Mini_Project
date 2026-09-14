@@ -17,5 +17,5 @@ public:
     Node(Order* newOrder);
 };
 
-#endif // NODE_H
+#endif  //NODE_H
 

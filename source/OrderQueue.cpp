@@ -1,6 +1,5 @@
 #include "../include/OrderQueue.h"
 #include <iostream>
-
 using namespace std;
 
 // Constructor
@@ -14,11 +13,11 @@ OrderQueue::OrderQueue()
 // Frees every Node and every Order
 OrderQueue::~OrderQueue()
 {
-    Node* current = front;
+    Node *current = front;
 
     while (current != nullptr)
     {
-        Node* nextNode = current->next;
+        Node *nextNode = current->next;
 
         delete current->order;
         current->order = nullptr;
@@ -40,9 +39,9 @@ OrderQueue::~OrderQueue()
 // Add Order
 // Queue operation: ENQUEUE
 // ========================================================
-void OrderQueue::enqueue(Order* newOrder)
+void OrderQueue::enqueue(Order *newOrder)
 {
-    Node* newNode = new Node(newOrder);
+    Node *newNode = new Node(newOrder);
 
     // If the queue is empty
     if (front == nullptr)
@@ -71,7 +70,7 @@ void OrderQueue::dequeue()
         return;
     }
 
-    Node* temp = front;
+    Node *temp = front;
 
     cout << "\nServing Order #" << temp->order->getOrderID() << endl;
     cout << "Customer : " << temp->order->getCustomerName() << endl;
@@ -126,7 +125,7 @@ void OrderQueue::display()
         return;
     }
 
-    Node* current = front;
+    Node *current = front;
     int position = 1;
 
     cout << "\n========== Current Order Line ==========" << endl;
@@ -157,7 +156,7 @@ void OrderQueue::search(int id)
         return;
     }
 
-    Node* current = front;
+    Node *current = front;
 
     while (current != nullptr)
     {
@@ -191,19 +190,19 @@ void OrderQueue::sortByID(bool ascending)
         return;
     }
 
-    Node* i = front;
+    Node *i = front;
 
     while (i != nullptr)
     {
-        Node* targetNode = i;
-        Node* j = i->next;
+        Node *targetNode = i;
+        Node *j = i->next;
 
         // Find the node with the minimum/maximum Order ID in the remaining list
         while (j != nullptr)
         {
             bool shouldSwap = ascending
-                ? (j->order->getOrderID() < targetNode->order->getOrderID())
-                : (j->order->getOrderID() > targetNode->order->getOrderID());
+                                  ? (j->order->getOrderID() < targetNode->order->getOrderID())
+                                  : (j->order->getOrderID() > targetNode->order->getOrderID());
 
             if (shouldSwap)
             {
@@ -215,7 +214,7 @@ void OrderQueue::sortByID(bool ascending)
         // Swap the Order pointers if a different node was selected
         if (targetNode != i)
         {
-            Order* temp = i->order;
+            Order *temp = i->order;
             i->order = targetNode->order;
             targetNode->order = temp;
         }
@@ -223,8 +222,8 @@ void OrderQueue::sortByID(bool ascending)
         i = i->next;
     }
 
-    cout << "\nOrders sorted by Order ID (" 
-         << (ascending ? "Lowest First" : "Highest First") 
+    cout << "\nOrders sorted by Order ID ("
+         << (ascending ? "Lowest First" : "Highest First")
          << ")." << endl;
 }
 
@@ -240,19 +239,19 @@ void OrderQueue::sortByPrice(bool ascending)
         return;
     }
 
-    Node* i = front;
+    Node *i = front;
 
     while (i != nullptr)
     {
-        Node* targetNode = i;
-        Node* j = i->next;
+        Node *targetNode = i;
+        Node *j = i->next;
 
         // Find the node with the minimum/maximum Price in the remaining list
         while (j != nullptr)
         {
             bool shouldSwap = ascending
-                ? (j->order->getPrice() < targetNode->order->getPrice())
-                : (j->order->getPrice() > targetNode->order->getPrice());
+                                  ? (j->order->getPrice() < targetNode->order->getPrice())
+                                  : (j->order->getPrice() > targetNode->order->getPrice());
 
             if (shouldSwap)
             {
@@ -264,7 +263,7 @@ void OrderQueue::sortByPrice(bool ascending)
         // Swap the Order pointers if a different node was selected
         if (targetNode != i)
         {
-            Order* temp = i->order;
+            Order *temp = i->order;
             i->order = targetNode->order;
             targetNode->order = temp;
         }
@@ -272,8 +271,8 @@ void OrderQueue::sortByPrice(bool ascending)
         i = i->next;
     }
 
-    cout << "\nOrders sorted by Price (" 
-         << (ascending ? "Lowest First" : "Highest First") 
+    cout << "\nOrders sorted by Price ("
+         << (ascending ? "Lowest First" : "Highest First")
          << ")." << endl;
 }
 
@@ -284,5 +283,3 @@ void OrderQueue::sortOrders()
 {
     sortByID(true);
 }
-
-

@@ -7,7 +7,7 @@ using namespace std;
 // ============================================================
 // Input Helper
 // ============================================================
-Order* createOrder()
+Order *createOrder()
 {
     int id;
     string customer;
@@ -40,7 +40,7 @@ Order* createOrder()
         cin.ignore(1000, '\n');
     }
 
-    Order* newOrder = new Order(id, customer, food, price);
+    Order *newOrder = new Order(id, customer, food, price);
 
     return newOrder;
 }
@@ -82,7 +82,7 @@ int main()
         {
         case 1:
         {
-            Order* newOrder = createOrder();
+            Order *newOrder = createOrder();
 
             orderLine.enqueue(newOrder);
 
@@ -201,4 +201,3 @@ int main()
     // When main ends, orderLine's destructor runs automatically.
     return 0;
 }
-
