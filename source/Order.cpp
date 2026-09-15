@@ -4,25 +4,17 @@
 using namespace std;
 
 // Constructor
-Order::Order(int id, string customer, string food, double p)
+Order::Order(int table_id, string food, double p)
 {
-    orderID = id;
-    customerName = customer;
+    tableID = table_id;
     foodName = food;
     price = p;
 }
 
-
-
 // Getters
-int Order::getOrderID()
+int Order::getTableID()
 {
-    return orderID;
-}
-
-string Order::getCustomerName()
-{
-    return customerName;
+    return tableID;
 }
 
 string Order::getFoodName()
@@ -38,8 +30,7 @@ double Order::getPrice()
 // Display one order
 void Order::display()
 {
-    cout << "Order ID     : " << orderID << endl;
-    cout << "Customer     : " << customerName << endl;
+    cout << "Order ID     : " << tableID << endl;
     cout << "Food         : " << foodName << endl;
     cout << "Price        : $" << price << endl;
 }
