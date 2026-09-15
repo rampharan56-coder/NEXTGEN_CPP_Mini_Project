@@ -10,20 +10,18 @@ using namespace std;
 class Order
 {
     private:
-    int orderID;
-    string customerName;
+    int tableID;
     string foodName;
     double price;
 
-    public:
+public:
     // Constructor
-    Order(int id, std::string customer, std::string food, double price);
+    Order(int table_id, std::string food, double price);
 
     
 
     // Getters
-    int getOrderID();
-    string getCustomerName();
+    int getTableID();
     string getFoodName();
     double getPrice();
 
