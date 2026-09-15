@@ -250,8 +250,9 @@ void OrderQueue::sortByPrice(bool ascending)
         while (j != nullptr)
         {
             bool shouldSwap = ascending
-                                  ? (j->order->getPrice() < targetNode->order->getPrice())
-                                  : (j->order->getPrice() > targetNode->order->getPrice());
+                                    ? (j->order->getPrice() < targetNode->order->getPrice())
+                                    : (j->order->getPrice() > targetNode->order->getPrice());
+                                    
 
             if (shouldSwap)
             {

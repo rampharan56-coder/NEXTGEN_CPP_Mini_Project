@@ -46,19 +46,80 @@ Order *createOrder()
 }
 
 // ============================================================
-// Main Function
+// Customer Menu
+// (Customers can only place an order and view all orders)
 // ============================================================
-int main()
+void customerMenu(OrderQueue &orderLine)
 {
-    OrderQueue orderLine;
-
     int choice;
 
     do
     {
         cout << "\n";
         cout << "========================================" << endl;
-        cout << "       RESTAURANT ORDER LINE" << endl;
+        cout << "             CUSTOMER MENU" << endl;
+        cout << "========================================" << endl;
+        cout << "1. Place Order" << endl;
+        cout << "2. Display All Orders" << endl;
+        cout << "3. Back to Main Menu" << endl;
+        cout << "========================================" << endl;
+
+        cout << "Enter your choice: ";
+        if (!(cin >> choice))
+        {
+            cout << "\nInvalid choice. Please enter a number." << endl;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
+        switch (choice)
+        {
+        case 1:
+        {
+            Order *newOrder = createOrder();
+
+            orderLine.enqueue(newOrder);
+
+            break;
+        }
+
+        case 2:
+        {
+            orderLine.display();
+
+            break;
+        }
+
+        case 3:
+        {
+            cout << "\nReturning to main menu..." << endl;
+
+            break;
+        }
+
+        default:
+        {
+            cout << "\nInvalid choice. Please try again." << endl;
+        }
+        }
+
+    } while (choice != 3);
+}
+
+// ============================================================
+// Employee Menu
+// (Employees have full access to all order queue functions)
+// ============================================================
+void employeeMenu(OrderQueue &orderLine)
+{
+    int choice;
+
+    do
+    {
+        cout << "\n";
+        cout << "========================================" << endl;
+        cout << "             EMPLOYEE MENU" << endl;
         cout << "========================================" << endl;
         cout << "1. Add Order" << endl;
         cout << "2. Serve Order" << endl;
@@ -66,7 +127,7 @@ int main()
         cout << "4. Display All Orders" << endl;
         cout << "5. Search Order" << endl;
         cout << "6. Sort Orders" << endl;
-        cout << "7. Exit" << endl;
+        cout << "7. Back to Main Menu" << endl;
         cout << "========================================" << endl;
 
         cout << "Enter your choice: ";
@@ -185,7 +246,7 @@ int main()
 
         case 7:
         {
-            cout << "\nExiting program..." << endl;
+            cout << "\nReturning to main menu..." << endl;
 
             break;
         }
@@ -197,6 +258,67 @@ int main()
         }
 
     } while (choice != 7);
+}
+
+// ============================================================
+// Main Function
+// ============================================================
+int main()
+{
+    OrderQueue orderLine;
+
+    int choice;
+
+    do
+    {
+        cout << "\n";
+        cout << "========================================" << endl;
+        cout << "       RESTAURANT ORDER LINE" << endl;
+        cout << "========================================" << endl;
+        cout << "1. Employee" << endl;
+        cout << "2. Customer" << endl;
+        cout << "3. Exit" << endl;
+        cout << "========================================" << endl;
+
+        cout << "Enter your choice: ";
+        if (!(cin >> choice))
+        {
+            cout << "\nInvalid choice. Please enter a number." << endl;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
+        switch (choice)
+        {
+        case 1:
+        {
+            employeeMenu(orderLine);
+
+            break;
+        }
+
+        case 2:
+        {
+            customerMenu(orderLine);
+
+            break;
+        }
+
+        case 3:
+        {
+            cout << "\nExiting program..." << endl;
+
+            break;
+        }
+
+        default:
+        {
+            cout << "\nInvalid choice. Please try again." << endl;
+        }
+        }
+
+    } while (choice != 3);
 
     // When main ends, orderLine's destructor runs automatically.
     return 0;
