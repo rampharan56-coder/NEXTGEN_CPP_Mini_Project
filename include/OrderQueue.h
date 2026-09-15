@@ -45,7 +45,7 @@ public:
 
     // Search Order
     // Search by Order ID
-    void search(int id);
+    void search(int table_id);
 
     // Selection Sort
     // Sort orders by Order ID (ascending or descending)
