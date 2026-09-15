@@ -72,8 +72,7 @@ void OrderQueue::dequeue()
 
     Node *temp = front;
 
-    cout << "\nServing Order #" << temp->order->getOrderID() << endl;
-    cout << "Customer : " << temp->order->getCustomerName() << endl;
+    cout << "\nServing Order #" << temp->order->getTableID() << endl;
     cout << "Food     : " << temp->order->getFoodName() << endl;
     cout << "Price    : $" << temp->order->getPrice() << endl;
 
@@ -160,7 +159,7 @@ void OrderQueue::search(int id)
 
     while (current != nullptr)
     {
-        if (current->order->getOrderID() == id)
+        if (current->order->getTableID() == id)
         {
             cout << "\nOrder found." << endl;
             cout << "----------------------------------------" << endl;
@@ -201,8 +200,8 @@ void OrderQueue::sortByID(bool ascending)
         while (j != nullptr)
         {
             bool shouldSwap = ascending
-                                  ? (j->order->getOrderID() < targetNode->order->getOrderID())
-                                  : (j->order->getOrderID() > targetNode->order->getOrderID());
+                                  ? (j->order->getTableID() < targetNode->order->getTableID())
+                                  : (j->order->getTableID() > targetNode->order->getTableID());
 
             if (shouldSwap)
             {
